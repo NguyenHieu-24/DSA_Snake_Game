@@ -1,64 +1,27 @@
-=: Core Concepts :=
+# Core Concepts
 ===================
-
-- List the four core concepts, the features they implement, and why each feature
+List the four core concepts, the features they implement, and why each feature
   is an approprate use of the concept. Incorporate the feedback you got after
   submitting your proposal.
 
-  1. 2D arrays:
+## 1. 2D arrays:
+Feedback: What types are you storing in the 2D array? 
+Think about how you are representing what is going in each element.
   
-  Feedback: What types are you storing in the 2D array? 
-  Think about how you are representing what is going in each element.
-  
-  A game of snakes consists of a rectangular grid (the "board"). I will use a 2D array to represent
-  the board and store what object is at each position. Each position may have either a snake head, 
-  a snake body, a food, or a null object. For example, as the snake moves around, the board will be 
-  updated so that each position on the board corresponds to the new location of the snake's body 
-  parts. The positions where the snake moves off of will be replaced with a null object. If a food 
-  is eaten, the position of the food will be replaced by the snake head and the snake will gain 
-  another joint. 
+A game of snakes consists of a rectangular grid (the "board"). I will use a 2D array to represent the board and store what object is at each position. Each position may have either a snake head, a snake body, a food, or a null object. For example, as the snake moves around, the board will be updated so that each position on the board corresponds to the new location of the snake's body parts. The positions where the snake moves off of will be replaced with a null object. If a food is eaten, the position of the food will be replaced by the snake head and the snake will gain another joint. 
 
-  2. I/O 
-  
-  Feedback: no feedback
-  
-  My Snake implementation will use I/O to store highscores. A player will be asked if they would 
-  like to save their score and if they say yes, they will be asked to input a username. 
-  The username and score will be saved into a text file. At the end of each game, the program will 
-  read and parse the data from that text file and show the high scores to the user. There will be 
-  multiple levels of difficulty so each submission will automatically include a difficulty tag so 
-  that only the high scores from the proper difficulty would be shown. 
+## 2. I/O 
+Feedback: no feedback
+My Snake implementation will use I/O to store highscores. A player will be asked if they would like to save their score and if they say yes, they will be asked to input a username. The username and score will be saved into a text file. At the end of each game, the program will read and parse the data from that text file and show the high scores to the user. There will be multiple levels of difficulty so each submission will automatically include a difficulty tag so that only the high scores from the proper difficulty would be shown. 
 
-  3. Testable Component
-  
-  Feedback: no feedback
-  
-  The main state of my game will be the board (2D array) and the snake. The snake will be modeled by
-  an ArrayList of snake objects. Each snake object may be a snake head or a snake body. Each snake 
-  object will also contain it's current x and y coordinates and direction. I will test that moving 
-  the snake updates the coordinates and updates the location of the snake on the board. I'll also
-  test that eating foods will cause the snake to gain an extra body part and update the 2D array 
-  to show the new part. I will also test that the snake's head touching the borders of the 
-  board or the snake's head touching the snake's body will cause the game to be over.
+## 3. Testable Component
+Feedback: no feedback
+The main state of my game will be the board (2D array) and the snake. The snake will be modeled by an ArrayList of snake objects. Each snake object may be a snake head or a snake body. Each snake object will also contain it's current x and y coordinates and direction. I will test that moving the snake updates the coordinates and updates the location of the snake on the board. I'll also test that eating foods will cause the snake to gain an extra body part and update the 2D array to show the new part. I will also test that the snake's head touching the borders of the board or the snake's head touching the snake's body will cause the game to be over.
 
-
-  4. Collections
-  
-  Note: My original proposal used Inheritance/Dynamic Dispatch but I realized that what I wanted to 
-  do was already implemented by the given GameObj class. So, I used collections instead. 
-  
-  Feedback for Inheritance: don't see the relation between them.. might as well just make separate classes?
-  
-  I will use an ArrayList to represent the snake. The first element of the ArrayList will contain 
-  the snake head while the rest of the ArrayList will contain the snake body parts. Each part of 
-  the snake is an Object with a position, direction, etc. I need to use an ArrayList because first, 
-  it is resizable. If I used an array, then I would have to make a new array and transfer memory 
-  each time the snake grows. Second, an ArrayList will allow me easy access to ordered elements. 
-  The way the snake's body parts move depend on the direction of the part before it. A Set or Map 
-  would not allow me to access the elements by index unless I make a new comparator, which would 
-  be unnecessary if I used an ArrayList. I did not use a LinkedList because an ArrayList is faster 
-  for the most part and I do not need the Deque properties of a LinkedList.
-
+## 4. Collections
+Note: My original proposal used Inheritance/Dynamic Dispatch but I realized that what I wanted to do was already implemented by the given GameObj class. So, I used collections instead. 
+Feedback for Inheritance: don't see the relation between them.. might as well just make separate classes?
+I will use an ArrayList to represent the snake. The first element of the ArrayList will contain the snake head while the rest of the ArrayList will contain the snake body parts. Each part of the snake is an Object with a position, direction, etc. I need to use an ArrayList because first, it is resizable. If I used an array, then I would have to make a new array and transfer memory each time the snake grows. Second, an ArrayList will allow me easy access to ordered elements. The way the snake's body parts move depend on the direction of the part before it. A Set or Map would not allow me to access the elements by index unless I make a new comparator, which would be unnecessary if I used an ArrayList. I did not use a LinkedList because an ArrayList is faster for the most part and I do not need the Deque properties of a LinkedList.
 
 =========================
 =: Your Implementation :=
